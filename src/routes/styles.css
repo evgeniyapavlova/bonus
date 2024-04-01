@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	background-color: #F0F2F5;
+	color: #262626;
+	line-height: 1.2;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Source Sans Pro', sans-serif
+}
