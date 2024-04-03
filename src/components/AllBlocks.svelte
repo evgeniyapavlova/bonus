@@ -2,12 +2,14 @@
 	import Intro from './Intro.svelte';
 	import Spin from './Spin.svelte';
 	import Footer from './Footer.svelte';
+	import Reviews from '../Reviews.svelte';
 </script>
 
 <section>
 	<Intro />
 	<Spin />
 	<Footer />
+	<Reviews />
 </section>
 
 <style>

@@ -146,3 +146,90 @@
 		}
 	];
 </script>
+
+<div class="wrap">
+	{#each reviews as review, index}
+		<div class="item">
+			<div class="avatar" id={`avatar-${index}`}></div>
+			<div class="details">
+				<div class="top-details">
+					<div class="fb-name">{review._name}</div>
+					<div class="fb-about">-&nbsp;{review.job}</div>
+				</div>
+				<div class="fb-comment-text">{review.text}</div>
+				<div class="fb-bottom-details">
+					<div class="fb-like">{review.likes}</div>
+				</div>
+			</div>
+		</div>
+	{/each}
+</div>
+
+<style>
+	.fb-like {
+		color: #4267b2;
+		text-decoration: none;
+	}
+	.fb-bottom-details {
+		margin-top: 6px;
+		font-family: Tahoma, 'Helvetica', 'Helvetica Neue', sans-serif;
+		color: #385898;
+		font-size: 12px;
+		line-height: 1.358;
+	}
+	.fb-comment-text {
+		margin: 4px 0 6px;
+	}
+	.top-details {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	.details {
+		padding: 5px 0 5px 60px;
+		margin-top: 5px;
+		position: relative;
+		min-height: 60px;
+		text-align: left;
+	}
+	.fb-about {
+		color: #90949c;
+		vertical-align: middle;
+		text-decoration: none;
+		margin-left: 2px;
+		line-height: 10px;
+	}
+	.fb-name {
+		color: #385898;
+		font-size: 14px;
+		line-height: 1.4;
+		margin-right: 2px;
+		display: inline-block;
+		vertical-align: middle;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.wrap {
+		font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+		font-size: 13px;
+		line-height: 1.3;
+		border-radius: 3px;
+		border: 1px solid #e6e6e6;
+		padding: 16px;
+	}
+	.avatar {
+		background-image: url('/images/css_sprites.png');
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		display: block;
+		top: 5px;
+		left: 0;
+	}
+	#avatar-0 {
+		background-position: -220px -429px;
+	}
+	.item {
+		position: relative;
+	}
+</style>
