@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { timer2 } from '../lib/stores/timer';
 	export let lang;
 
@@ -21,6 +22,37 @@
 			btn: 'Ganhe&nbsp;10&nbsp;000&nbsp;$ para&nbsp;negociar'
 		}
 	};
+
+	function getURLParameters() {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		return Object.fromEntries(urlParams.entries());
+	}
+
+	function updateLinks() {
+		const parameters = getURLParameters();
+		const links = document.querySelectorAll('.nlink');
+
+		links.forEach((link) => {
+			const linkHref = link.getAttribute('href');
+
+			if (linkHref && !linkHref.startsWith('#') && !linkHref.startsWith('mailto')) {
+				const [url, query] = linkHref.split('?');
+
+				const queryParams = new URLSearchParams(query);
+				for (const [key, value] of Object.entries(parameters)) {
+					queryParams.set(key, value);
+				}
+
+				const updatedHref = url + '?' + queryParams.toString();
+				link.href = updatedHref;
+			}
+		});
+	}
+
+	onMount(() => {
+		updateLinks();
+	});
 </script>
 
 <div>
@@ -64,10 +96,7 @@
 			</p>
 		</div>
 		<div class="prize-cta">
-			<a
-				class="nlink"
-				id="nlink"
-				href="https://exnova.onelink.me/ePBv?pid=adsterra&amp;c=129139_wheel"
+			<a class="nlink" id="nlink" href="https://iqoption.com/en/register"
 				>{@html content[lang].btn}</a
 			>
 		</div>

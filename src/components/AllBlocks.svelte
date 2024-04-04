@@ -3,7 +3,7 @@
 	import { city } from '../lib/stores/city';
 	import { count } from '../lib/stores/count_spin';
 	import { browser } from '../lib/stores/browser';
-	import { timer, timer1 } from '../lib/stores/timer';
+	import { timer, timer1, timer2 } from '../lib/stores/timer';
 
 	import Modal from 'svelte-simple-modal';
 	import Intro from './Intro.svelte';
@@ -51,6 +51,7 @@
 
 	onMount(() => {
 		timer(180, timer1);
+		timer(600, timer2);
 	});
 </script>
 
@@ -84,7 +85,7 @@
 		border: 1px solid #e6e6e6;
 		border-radius: 3px;
 		background-color: white;
-		margin: 20px auto 0;
+		margin: 20px auto;
 		text-align: center;
 		padding: 24px;
 	}
