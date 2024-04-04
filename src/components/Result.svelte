@@ -111,15 +111,19 @@
 	.prize-cta a {
 		max-width: 180px;
 		width: 100%;
-		background: var(--orange);
+		background-color: var(--orange);
 		border-radius: 4px;
 		font-size: 1rem;
 		display: block;
 		color: #fff;
 		text-decoration: none;
 		text-align: center;
-		padding: 6px 10px;
+		padding: 10px 16px;
 		font-weight: 400;
+		transition: background-color 0.2s ease-out;
+	}
+	.prize-cta a:hover {
+		background-color: var(--darkOrange);
 	}
 	.prize-info p {
 		font-weight: 600;
@@ -146,5 +150,21 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	@media only screen and (max-width: 650px) {
+		.prize {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.prize-cta {
+			flex-grow: 1;
+		}
+		.prize-cta a {
+			max-width: 300px;
+			margin: 24px auto;
+		}
+		.prize-info {
+			padding: 24px 0;
+		}
 	}
 </style>

@@ -89,4 +89,9 @@
 		text-align: center;
 		padding: 24px;
 	}
+	@media only screen and (max-width: 650px) {
+		section {
+			padding: 24px 16px;
+		}
+	}
 </style>

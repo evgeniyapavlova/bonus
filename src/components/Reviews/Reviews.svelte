@@ -61,8 +61,9 @@
 			<div class="avatar" id={`avatar-${index}`}></div>
 			<div class="details">
 				<div class="top-details">
-					<div class="fb-name">{review._name}</div>
-					<div class="fb-about">-&nbsp;{review.job}</div>
+					<span class="fb-name">{review._name}</span>&nbsp;-&nbsp;<span class="fb-about"
+						>{review.job}</span
+					>
 				</div>
 				<div class="fb-comment-text">{review.text}</div>
 				<div class="fb-bottom-details">
@@ -91,6 +92,9 @@
 </div>
 
 <style>
+	.fb-name {
+		white-space: nowrap;
+	}
 	.item.hidden {
 		display: none;
 		opacity: 0;
@@ -146,9 +150,9 @@
 		margin: 4px 0 6px;
 	}
 	.top-details {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
+		/* display: flex; */
+		/* align-items: center; */
+		/* justify-content: flex-start; */
 	}
 	.details {
 		padding: 5px 0 5px 60px;

@@ -5,7 +5,7 @@
 	import Popup from './Modal/Popup.svelte';
 
 	import money from '../lib/images/money.png';
-	import wheel from '../lib/images/wheel2.png';
+	import wheel from '../lib/images/wheel2.jpg';
 	import mark from '../lib/images/rotate_mark.png';
 	import spin from '../lib/images/spin.png';
 
@@ -75,6 +75,7 @@
 		z-index: 3;
 		margin-left: -25%;
 		margin-top: -25%;
+		max-width: 50%;
 		display: none;
 	}
 	.wrap {
@@ -147,5 +148,26 @@
 	.rotateIn {
 		-webkit-animation-name: rotateIn;
 		animation-name: rotateIn;
+	}
+
+	@media only screen and (max-width: 400px) {
+		.spin {
+			width: 100px;
+			height: 100px;
+			left: calc(50% - 50px);
+			top: calc(50% - 50px);
+		}
+		.circle-shadow {
+			width: var(--circleCenterSizeSmall);
+			height: var(--circleCenterSizeSmall);
+			border-radius: var(--circleCenterSizeSmall);
+			left: calc(50% - (var(--circleCenterSizeSmall) / 2));
+			top: calc(50% - (var(--circleCenterSizeSmall) / 2));
+			font-size: 16px;
+		}
+		.mark {
+			width: 18px;
+			left: calc(50% - 9px);
+		}
 	}
 </style>
