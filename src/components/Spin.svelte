@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { getContext } from 'svelte';
 	import { count } from '../lib/stores/count_spin';
 	import Popup from './Modal/Popup.svelte';
@@ -47,7 +48,7 @@
 				}, 7000);
 				setTimeout(() => {
 					count.set(2);
-				}, 1000);
+				}, 10000);
 			}
 		}
 	}
@@ -62,7 +63,7 @@
 	<img class="animated rotateIn money" src={money} alt="" id="money" />
 </div>
 <audio id="myAudio">
-	<source src="/sound.mp3?v2" type="audio/mpeg" />
+	<source src="{base}/sound.mp3?v2" type="audio/mpeg" />
 </audio>
 
 <style>

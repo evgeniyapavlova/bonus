@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { city } from '../lib/stores/city';
 	import { count } from '../lib/stores/count_spin';
+	import { browser } from '../lib/stores/browser';
 	import { timer, timer1 } from '../lib/stores/timer';
 
 	import Modal from 'svelte-simple-modal';
@@ -10,12 +11,37 @@
 	import Spin from './Spin.svelte';
 	import Footer from './Footer.svelte';
 	import Reviews from './Reviews/Reviews.svelte';
-	import FirstModal from './Modal/FirstModal.svelte';
+
 	export let lang;
 
 	let currentYear = new Date().getFullYear();
 
 	const myAPIKey = '83da9b2dcf134505beb00f51915dff53';
+
+	onMount(() => {
+		let browserName = (function (agent) {
+			switch (true) {
+				case agent.indexOf('edge') > -1:
+					return 'MS Edge';
+				case agent.indexOf('edg/') > -1:
+					return 'Edge (chromium based)';
+				case agent.indexOf('opr') > -1 && !!window.opr:
+					return 'Opera';
+				case agent.indexOf('chrome') > -1 && !!window.chrome:
+					return 'Chrome';
+				case agent.indexOf('trident') > -1:
+					return 'MS IE';
+				case agent.indexOf('firefox') > -1:
+					return 'Mozilla Firefox';
+				case agent.indexOf('safari') > -1:
+					return 'Safari';
+				default:
+					return 'other';
+			}
+		})(window.navigator.userAgent.toLowerCase());
+
+		browser.set(browserName);
+	});
 
 	onMount(async () => {
 		const res = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${myAPIKey}`);
@@ -28,7 +54,6 @@
 	});
 </script>
 
-<FirstModal />
 <section>
 	{#if $count === 2}
 		<Result {lang} />
@@ -40,7 +65,9 @@
 		<Footer {lang} />
 	{/if}
 
-	<Reviews {lang} />
+	<Modal>
+		<Reviews {lang} />
+	</Modal>
 	<div class="year">© {currentYear}</div>
 </section>
 

@@ -1,45 +1,18 @@
 <script>
 	import { city } from '../../lib/stores/city';
-	import { getContext, onMount } from 'svelte';
+	import { browser } from '../../lib/stores/browser';
+	import { getContext } from 'svelte';
 	const { close } = getContext('simple-modal');
 	import prize from '../../lib/images/prize.png';
-
-	onMount(() => {
-		let browserName = (function (agent) {
-			switch (true) {
-				case agent.indexOf('edge') > -1:
-					return 'MS Edge';
-				case agent.indexOf('edg/') > -1:
-					return 'Edge (chromium based)';
-				case agent.indexOf('opr') > -1 && !!window.opr:
-					return 'Opera';
-				case agent.indexOf('chrome') > -1 && !!window.chrome:
-					return 'Chrome';
-				case agent.indexOf('trident') > -1:
-					return 'MS IE';
-				case agent.indexOf('firefox') > -1:
-					return 'Mozilla Firefox';
-				case agent.indexOf('safari') > -1:
-					return 'Safari';
-				default:
-					return 'other';
-			}
-		})(window.navigator.userAgent.toLowerCase());
-
-		if (document.getElementById('browser')) {
-			document.getElementById('browser').innerText = browserName;
-		}
-	});
 </script>
 
 <div class="sweet-alert animated bounceIn">
-	<img id="gift-image" src={prize} style="width:115px" />
+	<img alt="Prize" id="gift-image" src={prize} style="width:115px" />
 	<h2 id="first-title">Congratulations, User!</h2>
 
 	<p class="text">
-		We're giving all <span id="browser"></span> users from {$city} a special opportunity to win money
-		and try out a new earning method. We're excited to have you on board and can't wait to see what you'll
-		accomplish.
+		We're giving all {$browser} users from {$city} a special opportunity to win money and try out a new
+		earning method. We're excited to have you on board and can't wait to see what you'll accomplish.
 	</p>
 	<br />
 	<p>Simply click 'OK' to try your luck!</p>
