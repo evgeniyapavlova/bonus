@@ -1,9 +1,9 @@
 <script>
-	import AllBlocks from '../components/AllBlocks.svelte';
-	import meta_img from '$lib/images/meta__img__en.jpg';
+	import meta_img from '$lib/images/meta__img__pt.jpg';
+	import AllBlocks from '../../components/AllBlocks.svelte';
 
-	const title = 'Congratulations!';
-	const desc = 'You have been selected as a winner';
+	const title = 'PARABÉNS!';
+	const desc = 'Você foi selecionado como vencedor entre todos os usuários!';
 </script>
 
 <svelte:head>
@@ -18,4 +18,4 @@
 	<meta name="twitter:image" content={meta_img} />
 </svelte:head>
 
-<AllBlocks lang="en" />
+<AllBlocks lang="pt" />

@@ -1,3 +1,8 @@
+:root {
+	--circleCenterSize: 90px;
+	--orange: #ff5722;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -12,4 +17,113 @@ body {
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
 	font-family: 'Source Sans Pro', sans-serif
+}
+
+button {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+#wheel {
+	width: 100%;
+	max-width: 600px;
+}
+
+.transparent {
+	opacity: 0.5;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+
+.spinAround {
+	animation: spin 6.6s;
+	-webkit-animation: spin 6.6s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	-ms-animation-fill-mode: forwards;
+	animation-fill-mode: forwards
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0);
+		-ms-transform: rotate(0);
+		transform: rotate(0)
+	}
+
+	90% {
+		-webkit-transform: rotate(3063deg);
+		-ms-transform: rotate(3063deg);
+		transform: rotate(3063deg)
+	}
+
+	95% {
+		-webkit-transform: rotate(3062deg);
+		-ms-transform: rotate(3062deg);
+		transform: rotate(3062deg)
+	}
+
+	100% {
+		-webkit-transform: rotate(3060deg);
+		-ms-transform: rotate(3060deg);
+		transform: rotate(3060deg)
+	}
+}
+
+.spinAround2 {
+	animation: spin2 6.6s;
+	-webkit-animation: spin2 6.6s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	-ms-animation-fill-mode: forwards;
+	animation-fill-mode: forwards
+}
+
+@keyframes spin2 {
+	0% {
+		-webkit-transform: rotate(3109deg);
+		-ms-transform: rotate(3109deg);
+		transform: rotate(3109deg)
+	}
+
+	90% {
+		-webkit-transform: rotate(5869deg);
+		-ms-transform: rotate(5869deg);
+		transform: rotate(5869deg)
+	}
+
+	95% {
+		-webkit-transform: rotate(5870deg);
+		-ms-transform: rotate(5870deg);
+		transform: rotate(5870deg)
+	}
+
+	100% {
+		-webkit-transform: rotate(5868deg);
+		-ms-transform: rotate(5868deg);
+		transform: rotate(5868deg)
+	}
+}
+
+
+.timer,
+.new-timer,
+.prize-name,
+.stock.in {
+	color: var(--orange);
+	text-decoration: underline;
 }
