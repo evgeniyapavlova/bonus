@@ -122,4 +122,7 @@
 		background: black;
 		outline: none;
 	}
+	.close-btn:focus-visible {
+		outline: none;
+	}
 </style>
