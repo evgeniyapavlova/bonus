@@ -1,27 +1,36 @@
 <script>
 	import { city } from '../../lib/stores/city';
 	import { browser } from '../../lib/stores/browser';
-	import { getContext } from 'svelte';
-	const { close } = getContext('simple-modal');
 	import prize from '../../lib/images/prize.png';
+
+	export let lang;
+
+	const content = {
+		en: { title: 'Congratulations, User!', ok: "Simply click 'OK' to try your luck!" },
+		pt: { title: 'Parabéns, usuário!', ok: "Basta clicar em 'OK' para tentar a sua sorte!" }
+	};
 </script>
 
-<div class="sweet-alert animated bounceIn">
+<div class="sweet-alert">
 	<img alt="Prize" id="gift-image" src={prize} style="width:115px" />
-	<h2 id="first-title">Congratulations, User!</h2>
+	<h2 id="first-title">{content[lang].title}</h2>
 
-	<p class="text">
-		We're giving all {$browser} users from {$city} a special opportunity to win money and try out a new
-		earning method. We're excited to have you on board and can't wait to see what you'll accomplish.
-	</p>
+	{#if lang === 'pt'}
+		<p class="text">
+			Estamos dando a todos os usuários do {$browser} de {$city} uma oportunidade especial de ganhar
+			dinheiro e experimentar um novo método de ganho. Estamos entusiasmados por tê-lo a bordo e mal
+			podemos esperar para ver o que você realizará.
+		</p>
+	{:else}
+		<p class="text">
+			We're giving all {$browser} users from {$city} a special opportunity to win money and try out a
+			new earning method. We're excited to have you on board and can't wait to see what you'll accomplish.
+		</p>
+	{/if}
+
 	<br />
-	<p>Simply click 'OK' to try your luck!</p>
-	<p></p>
-	<div class="sa-button-container">
-		<div class="sa-confirm-button-container">
-			<button on:click={close}>OK</button>
-		</div>
-	</div>
+
+	<p>{content[lang].ok}</p>
 </div>
 
 <style>
@@ -36,19 +45,9 @@
 		padding: 0;
 		line-height: normal;
 	}
-	button {
-		background-color: var(--orange);
-		color: #fff;
-		border: none;
-		box-shadow: none;
-		font-size: 17px;
-		font-weight: 600;
-		border-radius: 4px;
-		padding: 10px 32px;
-		margin: 26px 5px 0;
-		cursor: pointer;
-	}
+
 	.sweet-alert {
+		padding: 24px 16px;
 		text-align: center;
 		font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
@@ -70,47 +69,5 @@
 		margin-right: auto;
 		max-width: 450px;
 		line-height: 1.4;
-	}
-	@keyframes bounceIn {
-		0%,
-		100%,
-		20%,
-		40%,
-		60%,
-		80% {
-			-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-			animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-		}
-		0% {
-			opacity: 0;
-			-webkit-transform: scale3d(0.3, 0.3, 0.3);
-			transform: scale3d(0.3, 0.3, 0.3);
-		}
-		20% {
-			-webkit-transform: scale3d(1.1, 1.1, 1.1);
-			transform: scale3d(1.1, 1.1, 1.1);
-		}
-		40% {
-			-webkit-transform: scale3d(0.9, 0.9, 0.9);
-			transform: scale3d(0.9, 0.9, 0.9);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: scale3d(1.03, 1.03, 1.03);
-			transform: scale3d(1.03, 1.03, 1.03);
-		}
-		80% {
-			-webkit-transform: scale3d(0.97, 0.97, 0.97);
-			transform: scale3d(0.97, 0.97, 0.97);
-		}
-		100% {
-			opacity: 1;
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
-		}
-	}
-	.bounceIn {
-		-webkit-animation-name: bounceIn;
-		animation-name: bounceIn;
 	}
 </style>

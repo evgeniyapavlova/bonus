@@ -11,6 +11,7 @@
 	import Spin from './Spin.svelte';
 	import Footer from './Footer.svelte';
 	import Reviews from './Reviews/Reviews.svelte';
+	import ModalOnload from './Modal/ModalOnload.svelte';
 
 	export let lang;
 
@@ -56,6 +57,7 @@
 </script>
 
 <section>
+	<ModalOnload {lang} />
 	{#if $count === 2}
 		<Result {lang} />
 	{:else}
@@ -66,9 +68,8 @@
 		<Footer {lang} />
 	{/if}
 
-	<Modal>
-		<Reviews {lang} />
-	</Modal>
+	<Reviews {lang} />
+
 	<div class="year">© {currentYear}</div>
 </section>
 
