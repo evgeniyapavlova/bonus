@@ -1,13 +1,13 @@
 <script>
-	import { getContext, onMount } from 'svelte';
-	import Popup from '../Modal/FMPopup.svelte';
+	// import { onMount } from 'svelte';
+	// import Popup from '../Modal/FMPopup.svelte';
 
 	import Loader from '../Loader.svelte';
 	import reviews_en from './reviews_en';
 	import reviews_pt from './reviews_pt';
 	export let lang;
 
-	const { open } = getContext('simple-modal');
+	// const { open } = getContext('simple-modal');
 
 	let reviews = lang === 'pt' ? reviews_pt : reviews_en;
 
@@ -45,9 +45,9 @@
 		}
 	}
 
-	onMount(() => {
-		open(Popup);
-	});
+	// onMount(() => {
+	// 	open(Popup);
+	// });
 </script>
 
 <div class="wrap wrap-{lang}">

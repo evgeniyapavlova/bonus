@@ -164,7 +164,7 @@
 			margin: 24px auto;
 		}
 		.prize-info {
-			padding: 24px 0;
+			padding: 24px;
 		}
 	}
 </style>

@@ -2,6 +2,7 @@
 	import Header from '../components/Header.svelte';
 
 	import './styles.css';
+	import './animation.css';
 </script>
 
 <div class="app">
