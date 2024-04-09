@@ -5,8 +5,8 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		paths: {
-            base: process.env.NODE_ENV === 'production' ? '/bonus' : '',
-        }
+			base: process.env.NODE_ENV === 'production' ? '/spin-for-bonus' : ''
+		}
 	}
 };
 
